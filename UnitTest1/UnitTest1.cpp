@@ -26,13 +26,13 @@ std::wstring ToString(Calc_Typ value)
 
 	return std::to_wstring(static_cast<int>(value));
 }
-namespace UnitTestInit
+namespace UnitTest
 {
-	TEST_CLASS(UnitTestInit)
+	TEST_CLASS(Init)
 	{
 	public:
 		
-		TEST_METHOD(Init)
+		TEST_METHOD(InitCalc)
 		{
 			Calc test = Calc();
 			Assert::IsNotNull(&test);
@@ -48,16 +48,15 @@ namespace UnitTestInit
 		}
 		TEST_METHOD(Default_Typ) {
 			Calc test = Calc();
-			Assert::AreEqual(test.get_typ(), QWORD);
+			Assert::AreEqual(test.get_typ(), WORD);
 		}
 		TEST_METHOD(Default_BinArray) {
 			Calc test = Calc();
 			Assert::IsTrue(test.get_unset_bits() == 64);
 		}
 	};
-}
-namespace UnitTestInput {
-	TEST_CLASS(UnitTestInput)
+
+	TEST_CLASS(Input)
 	{
 	public:
 		TEST_METHOD(InputBin) {
@@ -69,7 +68,7 @@ namespace UnitTestInput {
 		TEST_METHOD(InputBin1) {
 			Calc test = Calc();
 			test.set_system(System_Bin);
-			test.set_values("1ww");
+			test.set_values("1w2w");
 			Assert::IsTrue(test.values.back() == "1");
 		}
 		TEST_METHOD(InputBin2) {
@@ -89,6 +88,56 @@ namespace UnitTestInput {
 			test.set_system(System_Bin);
 			test.set_values("11 +1*e1");
 			Assert::IsTrue(test.values.back() == "11+1*1");
+		}
+		TEST_METHOD(InputHex) {
+			Calc test = Calc();
+			test.set_system(System_Hex);
+			test.set_values(" 3433 A HE3P");
+			Assert::IsTrue(test.values.back() == "3433AE3");
+		}
+		TEST_METHOD(InputHexChar) {
+			Calc test = Calc();
+			test.set_system(System_Hex);
+			test.set_values(" 1A F5 +68E");
+			Assert::IsTrue(test.values.back() == "1AF5+68E");
+		}
+		TEST_METHOD(InputHex3) {
+			Calc test = Calc();
+			test.set_system(System_Hex);
+			test.set_values("1ytu6tA");
+			Assert::IsTrue(test.values.back() == "16A");
+		}
+		TEST_METHOD(InputOct) {
+			Calc test = Calc();
+			test.set_system(System_Oct);
+			test.set_values("1hfy47fgh59");
+			Assert::IsTrue(test.values.back() == "1475");
+		}
+		TEST_METHOD(InputOctChar) {
+			Calc test = Calc();
+			test.set_system(System_Oct);
+			test.set_values("595reg+46-5y");
+			Assert::IsTrue(test.values.back() == "55+46-5");
+		}
+		TEST_METHOD(InputOct2) {
+			Calc test = Calc();
+			test.set_system(System_Oct);
+			test.set_values("4574ryt72352tg");
+			Assert::IsTrue(test.values.back() == "457472352");
+		}
+		TEST_METHOD(inBYTE) {
+			Calc test = Calc();
+			test.set_typ(BYTE);
+			test.set_values("127");
+			test.convert_values();
+			Assert::IsTrue(test.int_values.back() == 127);
+		}
+		TEST_METHOD(inBYTE) {
+			Calc test = Calc();
+			test.set_typ(BYTE);
+			test.set_values("128");
+			test.convert_values();
+			Assert::IsTrue(test.int_values.back() == 12);
 		}
 	};
 }

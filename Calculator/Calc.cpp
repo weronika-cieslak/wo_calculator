@@ -9,6 +9,9 @@ Calc::Calc() {
 int Calc::get_result() {
 	return this->result;
 }
+void Calc::set_typ(Calc_Typ typ) {
+	this->Typ = typ;
+}
 int Calc::get_unset_bits() {
 	return this->bin_arr.size() - this->bin_arr.count();
 }

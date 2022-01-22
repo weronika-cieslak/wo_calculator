@@ -24,6 +24,7 @@ public:
 	void extract_values();
 	void convert_values();
 	void set_system(Calc_System system);
+	void set_typ(Calc_Typ typ);
 	void set_values(std::string values);
 };
 
