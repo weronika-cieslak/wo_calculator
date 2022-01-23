@@ -139,5 +139,61 @@ namespace UnitTest
 			test.convert_values();
 			Assert::IsTrue(test.int_values.back() == 12);
 		}
+		
+		/*
+		TEST_METHOD(add_decimal) {
+			Calc test = Calc();
+			Assert::AreEqual(4, calc.Add_decimal(2, 2));
+			Assert::AreEqual(-1, calc.Add_decimal(2, -3));
+		}
+		TEST_METHOD(substract_decimal) {
+			Calc test = Calc();
+			Assert::AreEqual(10, calc.Substract_decimal(15, 5));
+			Assert::AreEqual(20, calc.Substract_decimal(-10, -30));
+			Assert::AreEqual(-15, calc.Substract_decimal(-10, 5));
+		}
+		TEST_METHOD(multiplication_decimal) {
+
+			Calc test = Calc();
+			Assert::AreEqual(2, calc.multiplication_decimal(1, 2));
+			Assert:AreEqual(0, calc.multiplication_decimal(0, 11));
+			Assert::AreEqual(-1, calc.multiplication_decimal(-1, 1));
+		}
+		TEST_METHOD(divide_decimal) {
+			Calc test = calc();
+			Assert::AreEqual(2, calc.divide_decimal(12, 6));
+			Assert::AreEqual(, calc.dividedecimal(12, 0));
+		}
+		//dwójkowy
+		TEST_METHOD(add_binary) {
+			Calc test = Calc();
+			Assert::AreEqual(1111, calc.Add_binary(1000,111));
+		}
+		TEST_METHOD(substract_binary) {
+			Calc test = Calc();
+			Assert::AreEqual(0001, calc.Substract_binary(1000,111));
+		}
+		TEST_METHOD(multiplication_binary) {
+
+			Calc test = Calc();
+			Assert::AreEqual(111000, calc.multiplication_binary(1000,111));
+
+		}
+		//ósemkowy
+		TEST_METHOD(add_octal) {
+			Calc test = Calc();
+			Assert::AreEqual(442, calc.Add_octal(135, 305));
+		}
+		TEST_METHOD(substract_octal) {
+			Calc test = Calc();
+			Assert::AreEqual(7570, calc.Substract_octal(7654, 64));
+		}
+		TEST_METHOD(multiplication_octal) {
+
+			Calc test = Calc();
+			Assert::AreEqual(721060, calc.multiplication_octal(744, 754));	
+		}
+
+		*/
 	};
 }
